@@ -1,0 +1,12 @@
+/target/
+/.settings/
+/.vscode/
+.project
+.classpath
+.factorypath
+.attach_pid*
+
+.DS_Store
+
+/logs/
+/upload/
