@@ -1,12 +1,18 @@
 #-*- coding: utf-8 -*-
 from convert_case import *
 
-param = [
-"  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임'",
-"  `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시'",
-"  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd'",
-"  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여'",
-]
+# param = [
+# "  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임'",
+# "  `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시'",
+# "  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd'",
+# "  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여'",
+# ]
+paramString = """
+  `order_value` int(10) NOT NULL DEFAULT '0' COMMENT '순서값 asc',
+  `filter_seq` int(10) NOT NULL DEFAULT '0' COMMENT '필터키',
+  `content_type_code` int(10) NOT NULL DEFAULT '0' COMMENT '키구분',
+  `content_seq` int(10) NOT NULL DEFAULT '0' COMMENT '키값'
+"""
 
 # row, type, colName, format, comment
 query = '\t// , ["{0}", "{1}", "{2}", "{3}", "{4}"]'
@@ -30,7 +36,11 @@ def getMysqlFormat(str):
 
 # main
 if __name__ == "__main__":
+    param = paramString.split('\n')
     for item in param:
+        if not item:
+            continue
+
         item_split = item.strip().replace('`', '').replace("'", "").split(' ')
         type_name = getMysqlType(item_split[1])
         variable_name = to_camel_case(item_split[0])
