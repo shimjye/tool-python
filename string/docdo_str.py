@@ -8,11 +8,13 @@ from convert_case import *
 # "  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여'",
 # ]
 paramString = """
-  `order_value` int(10) NOT NULL DEFAULT '0' COMMENT '순서값 asc',
-  `filter_seq` int(10) NOT NULL DEFAULT '0' COMMENT '필터키',
-  `content_type_code` int(10) NOT NULL DEFAULT '0' COMMENT '키구분',
-  `content_seq` int(10) NOT NULL DEFAULT '0' COMMENT '키값'
+  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임',
+  `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시',
+  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd',
+  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여',
 """
+# paramString = """
+# """
 
 # row, type, colName, format, comment
 query = '\t// , ["{0}", "{1}", "{2}", "{3}", "{4}"]'
@@ -21,6 +23,8 @@ dt_format = ''
 def getMysqlType(str):
     if(str.find('int') != -1):
         return 'Integer'
+    elif(str.find('double') != -1):
+        return 'Double'
     elif(str.find('varchar') != -1):
         return 'String'
     elif(str.find('date') != -1):
