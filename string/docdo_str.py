@@ -7,14 +7,15 @@ from convert_case import *
 # "  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd'",
 # "  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여'",
 # ]
-paramString = """
-  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임',
-  `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시',
-  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd',
-  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여',
-"""
 # paramString = """
+#   `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임',
+#   `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시',
+#   `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd',
+#   `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여',
 # """
+paramString = """
+
+"""
 
 # row, type, colName, format, comment
 query = '\t// , ["{0}", "{1}", "{2}", "{3}", "{4}"]'

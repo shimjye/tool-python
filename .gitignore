@@ -10,5 +10,7 @@
 
 /logs/
 /upload/
+
+/XDG_CACHE_HOME/
 __pycache__
 __py*
