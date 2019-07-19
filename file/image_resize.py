@@ -32,24 +32,24 @@ def do_main():
         
         width, height = image.size
         if width > 2048:
-            resize_image = image.resize((2048, (int)(height * 2048 / width)))
+            resize_image = image.resize((2048, (int)(height * 2048 / width)), Image.ANTIALIAS)
         else:
             resize_image = image
 
         pathName = item[:item.find("/")]
         fileName = item[item.find("/"):item.find(".")]
-        extName = item[item.find("."):]
+        # extName = item[item.find("."):]
         print(pathName)
         print(fileName)
-        print(extName)
+        # print(extName)
         
         mkdir_p(target+pathName)
-        if '.png' == extName:
+        if not resize_image.mode == 'RGB':
             rgb_im = resize_image.convert('RGB')
             rgb_im.save(target+pathName+fileName+'.jpg', 'JPEG', quality=70)
         else:
             resize_image.save(target+pathName+fileName+'.jpg', 'JPEG', quality=70)
-        # image.save(target+pathName+fileName+'.png', optimize=True,quality=50)
+        # image.save(target+pathName+fileName+'.png', optimize=True, quality=95)
 
         # if i > 3: break
         print(i)
