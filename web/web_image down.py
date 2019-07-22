@@ -12,7 +12,7 @@ def mkdir_p(path):
     except OSError as exc: #Python > 2.5
         raise #기존 디렉토리에 접근이 불가능 한 경우
 
-# thexigner happybean 작업 - image
+# image down
 def do_request_get():
     # photo || https://sootnoon.com/image-file-path || key
     f = open("/data/python/photo-list.txt", 'r')
