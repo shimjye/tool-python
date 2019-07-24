@@ -59,6 +59,7 @@ def do_request_get():
     f.close()
 
 def do_parse(line, result):
+    result = re.sub('</br>', '<br/>', result, 0)
     bsObject = BeautifulSoup(result, 'html.parser')
 
     # category, content, business-date
