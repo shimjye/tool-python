@@ -12,4 +12,6 @@ def change_nfc_all_dir(dirname):
         if os.path.isdir(before_filename):    
             change_nfc_all_dir(before_filename)
 
-change_nfc_all_dir("/data/image-work/agency-image")
+# main
+if __name__ == "__main__":
+    change_nfc_all_dir("/data/image-work/agency-image")

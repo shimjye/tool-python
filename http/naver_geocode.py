@@ -5,6 +5,7 @@ import urllib.request
 import json
 import time
 
+# naver api deprecated 20190726
 # shimjye key
 client_id = "key"
 client_secret = "key"
@@ -40,4 +41,5 @@ def do_naver_geocode():
         time.sleep(.100)
 
 # main
-do_naver_geocode()
+if __name__ == "__main__":
+    do_naver_geocode()

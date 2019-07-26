@@ -13,8 +13,9 @@ params = [
     ,'H000000155231/202233.png'
     ,'H000000154673/923371.png'
 ]
-source = '/data/python/images-story-first/'
-target = '/data/python/images-story-first-re/'
+source = '/data/python/imagedown/images/'
+target = '/data/python/imagedown/images-re/'
+qualityVal = 10
 
 def mkdir_p(path):
     try:
@@ -23,7 +24,7 @@ def mkdir_p(path):
         raise #기존 디렉토리에 접근이 불가능 한 경우
 
 def do_main():
-    f = open("/data/python/file-image.txt", 'r')
+    f = open("/data/python/imagedown/file-image.txt", 'r')
     lines = f.readlines()
     i = 0
     for item in lines:
@@ -39,20 +40,21 @@ def do_main():
         pathName = item[:item.find("/")]
         fileName = item[item.find("/"):item.find(".")]
         # extName = item[item.find("."):]
-        print(pathName)
-        print(fileName)
+
+        print('index|'+str(i))
+        print('pathName|'+pathName)
+        print('fileName|'+fileName)
         # print(extName)
         
         mkdir_p(target+pathName)
         if not resize_image.mode == 'RGB':
             rgb_im = resize_image.convert('RGB')
-            rgb_im.save(target+pathName+fileName+'.jpg', 'JPEG', quality=70)
+            rgb_im.save(target+pathName+fileName+'.jpg', 'JPEG', quality=qualityVal)
         else:
-            resize_image.save(target+pathName+fileName+'.jpg', 'JPEG', quality=70)
+            resize_image.save(target+pathName+fileName+'.jpg', 'JPEG', quality=qualityVal)
         # image.save(target+pathName+fileName+'.png', optimize=True, quality=95)
 
-        # if i > 3: break
-        print(i)
+        if i > 1: break
         i = i + 1
     
     f.close()

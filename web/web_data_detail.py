@@ -32,32 +32,6 @@ def to_text_val(textVal):
     textVal = re.sub('[\t ]{2,}', ' ', textVal, 0)
     return textVal.strip()
 
-def do_request_get():
-    # test
-    f = open("/data/python/test.html", 'r')
-    result = f.read()
-    print(test, result)
-    do_parse(test, result)
-
-    # list-param.txt
-    # key\n
-    # key\n
-    # ...
-    # f = open("/data/python/list-param.txt", 'r')
-    # lines = f.readlines()
-    # i = 0
-    # for line in lines:
-    #     # print(site + line)
-    #     result = do_request_web(site + line)
-    #     # print(result)
-    #     do_parse(line, result)
-    #     time.sleep(.100)
-        # if i > 3:
-        #     break
-        # i = i + 1
-
-    f.close()
-
 def do_parse(line, result):
     result = re.sub('</br>', '<br/>', result, 0)
     bsObject = BeautifulSoup(result, 'html.parser')
@@ -106,5 +80,33 @@ def do_parse(line, result):
             print(photo['src'], end=' || ')
             print(line)
 
+
+def do_main():
+    # test
+    f = open("/data/python/test.html", 'r')
+    result = f.read()
+    print(test, result)
+    do_parse(test, result)
+
+    # list-param.txt
+    # key\n
+    # key\n
+    # ...
+    # f = open("/data/python/list-param.txt", 'r')
+    # lines = f.readlines()
+    # i = 0
+    # for line in lines:
+    #     # print(site + line)
+    #     result = do_request_web(site + line)
+    #     # print(result)
+    #     do_parse(line, result)
+    #     time.sleep(.100)
+        # if i > 3:
+        #     break
+        # i = i + 1
+
+    f.close()
+
 # main
-do_request_get()
+if __name__ == "__main__":
+    do_main()

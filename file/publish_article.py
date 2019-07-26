@@ -38,10 +38,10 @@ def makereadme(dist, basedir):
 
 
 # main process
+if __name__ == "__main__":
+    title='# 정확하지 않을 수 있는 개인적인 생각 기록.'
+    src='../article'
+    dist='../../shimjye.github.io/article'
 
-title='# 정확하지 않을 수 있는 개인적인 생각 기록.'
-src='../article'
-dist='../../shimjye.github.io/article'
-
-copytree(src, dist)
-makereadme(dist, 'article')
+    copytree(src, dist)
+    makereadme(dist, 'article')

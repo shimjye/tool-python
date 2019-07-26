@@ -12,14 +12,15 @@ lat = 0.0;
 addr = '';
 
 # main
-for item in param:
-    # print item
-    if row_num == 0:
-        addr = item
-        row_num += 1
-    elif row_num == 1:
-        item_split = item.split(':')
-        lng = item_split[0]
-        lat = item_split[1]
-        print(query.format(lng, lat, addr))
-        row_num = 0
+if __name__ == "__main__":
+    for item in param:
+        # print item
+        if row_num == 0:
+            addr = item
+            row_num += 1
+        elif row_num == 1:
+            item_split = item.split(':')
+            lng = item_split[0]
+            lat = item_split[1]
+            print(query.format(lng, lat, addr))
+            row_num = 0
