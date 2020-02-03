@@ -15,9 +15,16 @@ paramString = """
   `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여',
 '''
 
-prestr = """
-"""
-endstr = """
+prestr = """//	$docdo-ss={"id":"com.sootnoon.goose.GooseBeanModel"}
+//	{
+//		"projectName": "goose",
+//		"packageName": "com.sootnoon.goose.api.latest.",
+//		"className": "",
+//		"types": ["""
+endstr = """//		]
+//	}
+//	$docdo-se
+//	$docdo-sg
 """
 
 paramString = """
