@@ -2,24 +2,15 @@
 from convert_case import *
 
 '''
-param = [
-"  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임'",
-"  `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시'",
-"  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd'",
-"  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여'",
-]
-paramString = """
-  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT '닉네임',
-  `last_login_dt` datetime DEFAULT NULL COMMENT '마지막 로그인 일시',
-  `birth_date` date DEFAULT NULL COMMENT '생년월일 yyyy-mm-dd',
-  `gender` int(10) NOT NULL DEFAULT '0' COMMENT '성별 0미지정, 1남, 2여',
+Simple create-sql to docdo-source-string.
+Work with python 3.x.
 '''
 
-prestr = """//	$docdo-ss={"id":"com.sootnoon.goose.GooseBeanModel"}
+prestr = """//	$docdo-ss={"id":"com.sootnoon.docdo.DocdoBeanModel"}
 //	{
-//		"projectName": "goose",
-//		"packageName": "com.sootnoon.goose.api.latest.",
-//		"className": "",
+//		"projectName": "docdo",
+//		"packageName": "com.sootnoon.docdo.api.latest.",
+//		"className": "DocdoBean",
 //		"types": ["""
 endstr = """//		]
 //	}
@@ -28,6 +19,10 @@ endstr = """//		]
 """
 
 paramString = """
+  `nickname` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'nickname',
+  `last_login_dt` datetime DEFAULT NULL COMMENT 'last_login_dt',
+  `birth_date` date DEFAULT NULL COMMENT 'birth_date yyyy-mm-dd',
+  `gender` int(10) NOT NULL DEFAULT '0' COMMENT 'gender 0:defalut, 1:man, 2:woman',
 """
 
 def getMysqlType(str):
@@ -53,7 +48,7 @@ def getMysqlFormat(str):
 # main
 if __name__ == "__main__":
     param = paramString.split('\n')
-    # row, type, colName, format, comment
+    # type, colName, format, comment
     query = '//\t\t\t{{"type": "{0}", "name": "{1}", "format": "{2}", "desc": "{3}"}},'
 
     print(prestr)
