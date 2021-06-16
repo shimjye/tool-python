@@ -56,7 +56,7 @@ import time
 
 client_id = 'key' # key
 param = [
-    '전북 삼성동 100'
+    '경기 화성시 동탄순환대로22길',
 ]
 
 def kakao_local_search_address(addr):
@@ -106,5 +106,7 @@ def do_test():
 
 # main
 if __name__ == '__main__':
-    do_main()
+    result = kakao_local_search_address(param[0])
+    print(result)
+    # do_main()
 #     do_test()
