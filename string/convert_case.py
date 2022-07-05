@@ -6,6 +6,12 @@ def to_camel_case(snake_str):
     # with the 'title' method and join them together.
     return components[0].lower() + ''.join(x.title() for x in components[1:])
 
+def to_big_camel_case(snake_str):
+    components = snake_str.split('_')
+    # We capitalize the first letter of each component except the first one
+    # with the 'title' method and join them together.
+    return components[0].lower().capitalize() + ''.join(x.title() for x in components[1:])
+
 
 # main
 if __name__ == "__main__":
